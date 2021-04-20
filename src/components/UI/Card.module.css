@@ -1,0 +1,8 @@
+.card {
+  background-color: #fff;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  padding: 15px;
+  margin: 5px auto;
+  border-radius: 15px;
+}
