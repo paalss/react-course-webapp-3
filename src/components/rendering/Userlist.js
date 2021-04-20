@@ -2,7 +2,6 @@ import Card from "../UI/Card";
 import styles from "./Userlist.module.css"
 
 const Userlist = ({ result }) => {
-  console.log(result);
   return (
     <Card className={styles.users}>
       <ul>
