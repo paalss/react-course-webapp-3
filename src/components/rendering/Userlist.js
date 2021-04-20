@@ -2,12 +2,13 @@ import Card from "../UI/Card";
 import styles from "./Userlist.module.css"
 
 const Userlist = ({ result }) => {
+  console.log(result);
   return (
-    <Card>
+    <Card className={styles.users}>
       <ul>
         {result.map((user) => (
           <li key={user.id}>
-            {user.text} ({user.age})
+            {user.username} ({user.age})
           </li>
         ))}
       </ul>

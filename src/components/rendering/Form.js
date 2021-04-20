@@ -1,63 +1,58 @@
 import Card from "../UI/Card";
-import styles from "./Form.module.css"
+import styles from "./Form.module.css";
+import Button from "./Button";
 import { useState } from "react";
 
 const Form = ({ onAddUser }) => {
   // bruke state slik at man kan bestemme om verdien skal resettes eller ikke
-  const [enteredText, setEnteredText] = useState("");
+  const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
 
-  const updateTextStateHandler = (event) => {
-    const enteredText = event.target.value;
-    setEnteredText(enteredText);
+  const usernameChangeHandler = (event) => {
+    setEnteredUsername(event.target.value);
   };
 
-  const updateAgeStateHandler = (event) => {
-    const enteredAge = event.target.value;
-    setEnteredAge(enteredAge);
+  const ageChangeHandler = (event) => {
+    setEnteredAge(event.target.value);
   };
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    // deklareringer som kan brukes om vi ikke bruker state
-    // const enteredText = event.target[0].value
-    // const enteredAge = event.target[1].value
 
-    if (enteredText.trim() === "") {
-      alert('please enter name')
-    }
-    else if (enteredAge < 0) {
-      alert('age must be over 0')
-    }
-    else {
-      // validering input
-      onAddUser(enteredText, enteredAge);
-      setEnteredText("");
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      alert("please enter name and age");
+    } else if (+enteredAge < 1) {
+      // +enteredAge = parseInt(enteredAge)
+      alert("age must be over 0");
+    } else {
+      onAddUser(enteredUsername, enteredAge);
+      setEnteredUsername("");
       setEnteredAge("");
     }
   };
 
   return (
-    <Card>
+    <Card className={styles.input}>
       <form onSubmit={formSubmitHandler}>
         <div>
-          <label>Username</label> <br />
+          <label htmlFor="username">Username</label>
           <input
+            id="username"
             type="text"
             name="username"
-            value={enteredText}
-            onChange={updateTextStateHandler}
-          />{" "}
-          <br />
-          <label>Age (Years)</label> <br />
+            value={enteredUsername}
+            onChange={usernameChangeHandler}
+          />
+          <label htmlFor="age">Age (Years)</label>
           <input
+            id="age"
             type="number"
             name="age"
             value={enteredAge}
-            onChange={updateAgeStateHandler}
+            onChange={ageChangeHandler}
           />
         </div>
-        <button type="submit">Add user</button>
+        <Button type="submit">Add user</Button>
       </form>
     </Card>
   );

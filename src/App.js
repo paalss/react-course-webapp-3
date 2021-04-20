@@ -4,17 +4,17 @@ import Userlist from "./components/rendering/Userlist";
 
 function App() {
   const [users, setUsers] = useState([
-    { id: "id1", text: "bob", age: 18 },
-    { id: "id2", text: "siri", age: 20 },
+    { id: "id1", username: "bob", age: 18 },
+    { id: "id2", username: "siri", age: 20 },
   ]);
 
-  const addUserHandler = (enteredText, enteredAge) => {
+  const addUserHandler = (name, age) => {
     setUsers((prevUsers) => {
       const updatedUsers = [...prevUsers];
       updatedUsers.unshift({
         id: Math.random().toString(),
-        text: enteredText,
-        age: enteredAge,
+        username: name,
+        age: age,
       });
       return updatedUsers;
     });
