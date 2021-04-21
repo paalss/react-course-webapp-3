@@ -1,10 +1,11 @@
 import Card from "./Card";
 import Button from "./Button";
 import styles from "./ErrorModal.module.css";
+import { Fragment } from "react";
 
 const ErrorModal = ({ title, message, onConfirm }) => {
   return (
-    <div>
+    <Fragment>
       <div className={styles.backdrop} onClick={onConfirm} />
       <Card className={styles.modal}>
         <header className={styles.header}>
@@ -14,11 +15,10 @@ const ErrorModal = ({ title, message, onConfirm }) => {
           <p>{message}</p>
         </div>
         <footer className={styles.actions}>
-          {/* <button onclick={onConfirm}>OK!!</button> */}
           <Button onClick={onConfirm}>OK</Button>
         </footer>
       </Card>
-    </div>
+    </Fragment>
   );
 };
 

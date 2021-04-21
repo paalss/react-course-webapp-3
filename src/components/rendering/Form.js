@@ -2,7 +2,7 @@ import Card from "../UI/Card";
 import styles from "./Form.module.css";
 import ErrorModal from "../UI/ErrorModal";
 import Button from "../UI/Button";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 const Form = ({ onAddUser }) => {
   // bruke state slik at man kan bestemme om verdien skal resettes eller ikke
@@ -46,10 +46,7 @@ const Form = ({ onAddUser }) => {
   };
 
   const closeErrorHandler = () => {
-    console.log('closeErrorHandler');
     setValidatedInput({ isInputCorrect: true, message: "" });
-    setEnteredUsername("");
-    setEnteredAge("");
   };
 
   if (validatedInput.isInputCorrect === false) {
@@ -63,7 +60,7 @@ const Form = ({ onAddUser }) => {
   }
 
   return (
-    <div>
+    <Fragment>
       {errorPlaceHolder}
       <Card className={styles.input}>
         <form onSubmit={formSubmitHandler}>
@@ -88,7 +85,7 @@ const Form = ({ onAddUser }) => {
           <Button type="submit">Add user</Button>
         </form>
       </Card>
-    </div>
+    </Fragment>
   );
 };
 
