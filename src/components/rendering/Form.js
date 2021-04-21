@@ -34,7 +34,7 @@ const Form = ({ onAddUser }) => {
       });
     } else {
       onAddUser(enteredUsername, enteredAge);
-      // egentlig ikke anbefalt å bruke refs til å manipulere dom.
+      // egentlig ikke anbefalt å bruke refs variabler til å manipulere dom.
       usernameInputRef.current.value = ''
       ageInputRef.current.value = ''
     }
