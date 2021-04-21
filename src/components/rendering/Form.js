@@ -2,29 +2,23 @@ import Card from "../UI/Card";
 import styles from "./Form.module.css";
 import ErrorModal from "../UI/ErrorModal";
 import Button from "../UI/Button";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useRef } from "react";
 
 const Form = ({ onAddUser }) => {
+  const usernameInputRef = useRef();
+  const ageInputRef = useRef();
+
   // bruke state slik at man kan bestemme om verdien skal resettes eller ikke
-  const [enteredUsername, setEnteredUsername] = useState("");
-  const [enteredAge, setEnteredAge] = useState("");
   const [validatedInput, setValidatedInput] = useState({
     isInputCorrect: true,
     title: "",
     message: "",
   });
 
-  const usernameChangeHandler = (event) => {
-    setEnteredUsername(event.target.value);
-  };
-
-  const ageChangeHandler = (event) => {
-    setEnteredAge(event.target.value);
-  };
-
   const formSubmitHandler = (event) => {
     event.preventDefault();
-
+    const enteredUsername = usernameInputRef.current.value;
+    const enteredAge = ageInputRef.current.value;
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setValidatedInput({
         isInputCorrect: false,
@@ -40,8 +34,9 @@ const Form = ({ onAddUser }) => {
       });
     } else {
       onAddUser(enteredUsername, enteredAge);
-      setEnteredUsername("");
-      setEnteredAge("");
+      // egentlig ikke anbefalt å bruke refs til å manipulere dom.
+      usernameInputRef.current.value = ''
+      ageInputRef.current.value = ''
     }
   };
 
@@ -70,16 +65,14 @@ const Form = ({ onAddUser }) => {
               id="username"
               type="text"
               name="username"
-              value={enteredUsername}
-              onChange={usernameChangeHandler}
+              ref={usernameInputRef}
             />
             <label htmlFor="age">Age (Years)</label>
             <input
               id="age"
               type="number"
               name="age"
-              value={enteredAge}
-              onChange={ageChangeHandler}
+              ref={ageInputRef}
             />
           </div>
           <Button type="submit">Add user</Button>
