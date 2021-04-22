@@ -4,8 +4,8 @@ npm start
 ```
 
 # Practise project oppgave
-På egenhånd, forsøk å lag en app hvor man skriver inn i input felt og kan legge til dette som et listeelement i en liste, og input values skal forsvinne. \
-Hvis input er feil skal man ved submit i stedet for få en error popup. Ved klikk på "OK" eller backdrop skal popup forsvinne.
+Lag en app hvor man har input felt og en liste, og hvor man kan submitte input og få det som et listeelement. Input values skal for øvrig også fjernes når elementet er lagt til. \
+Hvis input derimot er feil skal man ved submit i stedet for få en error popup. Ved klikk på "OK" eller backdrop skal popup forsvinne.
 
 Input og liste \
 ![App](public/screenshots/app-2021-04-20-141503.png)
@@ -15,8 +15,10 @@ Error popup \
 ![App_error](public/screenshots/app-2021-04-21-121338.png)
 
 # Hvordan det gikk
-Jeg fikk lagd alt unntatt error popup. Hadde ikke en anelse på hvordan jeg skulle gjøre det, så bare byttet dem ut med vanlig *alert()* (commit "Forsøk på å ..." b9b6956).
+Jeg fikk lagd alt unntatt error popup. Hadde ingen anelse på hvordan jeg skulle gjøre det, så bare brukte vanlig *alert()* (commit 20. april "Forsøk på å ..." b9b6956).
 
-Etter å ha fulgt løsnignene til oppgaven så jeg også at jeg måtte refaktorere koden her og der, og lagt inn error popup (commit "fullfører practise project ..." 62c6bd0).
+Etter å ha fulgt løsnignene til oppgaven så jeg også at jeg måtte refaktorere koden her og der, og lagt inn error popup (commit 20. april "fullfører practise project ..." 62c6bd0).
 
-Ellers er commits etter 20. april videreutvikling av appen, ikke en del av oppgaven over, og for det meste fulgt etter videoene
+Ellers er commits etter 20. april videreutvikling av appen, ikke en del av oppgaven nevnt over, og for det meste fulgt etter videoene.
+
+<!-- Practise project oppgave = En type oppgave hvor man får en beskrivelse av en løsning, blir oppfordret til å utvikle den uten å se på de neste videoene, for så å fortsette med videoene og forbedre der det er nødvendig. -->
